@@ -75,7 +75,7 @@ fun MainScren(
             value = email, onValueChange = { email = it },
             placeholder = { Text("Masukan Email :") },
             label = { Text("Email") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
 
@@ -106,11 +106,10 @@ fun MainScren(
         }) {
             Text("Simpan")
         }
-        Card (modifier.size(height = 50.dp, width = 100.dp )){
+        Card (modifier.size(height = 300.dp, width =500.dp )){
 
             CardSection(judulParem = "Nama", isiParem = confirmName)
-            CardSection(judulParem = "Jenis kelamin", isiParem = confirmName)
-            CardSection(judulParem = "Email", isiParem = confirmEmail)
+            CardSection(judulParem = "Jenis kelamin", isiParem = confirmSelectedGender)
             CardSection(judulParem = "Alamat", isiParem = confirmAlamat)
             CardSection(judulParem = "No Hp", isiParem = confirmNoHp)
 
@@ -122,17 +121,17 @@ fun MainScren(
 
 @Composable
 fun CardSection(judulParem:String, isiParem:String) {
-    Column(horizontalAlignment = Alignment.Start) {
+    Column(modifier = Modifier.padding(16.dp)) {
 
 
         //Spacer(modifier = Modifier.padding(10.dp).fillMaxWidth().padding(1.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(text = judulParem, modifier = Modifier.weight(0.8f))
-            Text(text = ": ")
+            Text(text = ": ", modifier = Modifier.weight(0.2f))
             Text(text = isiParem, modifier = Modifier.weight(2f))
 
 
